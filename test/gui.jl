@@ -571,6 +571,9 @@ destroy(w)
 
 style_file = joinpath(dirname(@__FILE__), "style_test.css")
 
+x = open(readall, style_file)
+println(x)
+
 l = @Label "I am some large text!"
 w = @Window(l)
 

@@ -569,9 +569,9 @@ destroy(w)
 
 ## CssProviderLeaf(filename="...")
 
-style_file = "style_test.css"
+style_file = joinpath(dirname(@__FILE__), "style_test.css")
 
-l = @Label "I am some large blue text!"
+l = @Label "I am some large text!"
 w = @Window(l)
 
 screen   = Gtk.GAccessor.screen(w)

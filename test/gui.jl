@@ -569,7 +569,7 @@ destroy(w)
 
 ## CssProviderLeaf(filename="...")
 
-style_file = "style.css"
+style_file = "style_test.css"
 
 l = @Label "I am some large blue text!"
 w = @Window(l)

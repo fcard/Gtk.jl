@@ -564,3 +564,28 @@ str = takebuf_string(io)
 @assert str == "scrolling\n"
 
 destroy(w)
+
+# CSS
+
+## CssProviderLeaf(filename="...")
+
+style_file = joinpath(dirname(@__FILE__), "style_test.css")
+
+x = open(readall, style_file)
+println(x)
+
+l = @Label "I am some large text!"
+w = @Window(l)
+
+screen   = Gtk.GAccessor.screen(w)
+provider = CssProviderLeaf(filename=style_file)
+
+ccall((:gtk_style_context_add_provider_for_screen, Gtk.libgtk), Void,
+      (Ptr{Void}, Ptr{GObject}, Cuint),
+      screen, provider, 1)
+
+showall(w)
+
+### add css tests here
+
+destroy(w)
